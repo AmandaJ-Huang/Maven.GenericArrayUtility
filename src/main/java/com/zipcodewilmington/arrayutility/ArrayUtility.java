@@ -15,15 +15,11 @@ public class ArrayUtility<T> {
 
     public Integer countDuplicatesInMerge(T[] arrayToMerge, T valueToEvaluate) {
         Integer counter = 0;
+        List<T> newArray = new ArrayList<>(Arrays.asList(array));
+        newArray.addAll(Arrays.asList(arrayToMerge));
 
-        for (int i = 0; i < arrayToMerge.length; i++) {
-            if(arrayToMerge[i].equals(valueToEvaluate)) {
-                counter++;
-            }
-        }
-
-        for (int i = 0; i < this.array.length; i++) {
-            if(this.array[i].equals(valueToEvaluate)) {
+        for (int i = 0; i < newArray.size(); i++) {
+            if(newArray.get(i).equals(valueToEvaluate)) {
                 counter++;
             }
         }
